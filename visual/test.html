@@ -1,0 +1,53 @@
+<!doctype html>
+<html charset="utf-8">
+<head>
+    <title>Raphaël - Connectivities</title>
+    <script src="./lib/raphael-min.js" type="text/javascript" charset="utf-8"></script>
+    <!--<script type="text/javascript">-->
+        <!--function Entity(r, l, t, w, h){-->
+            <!--this.Label = r.text(l + w/2, t + h/2, "Hello World!");-->
+            <!--this.Rectangle = r.rect(l, t, w, h, 10).attr({fill:"brown", stroke:"#666", title:"A Rectangle"}).drag(move, Dragger, up).data("cooperative", this.Label).toBack();-->
+            <!--function Dragger(){-->
+                <!--this.xx = this.attr("x");-->
+                <!--this.yy = this.attr("y");-->
+                <!--this.animate({"fill-opacity": .2}, 500);-->
+            <!--}-->
+            <!--function move(dx, dy){-->
+                <!--var attr = {x: this.xx + dx, y: this.yy + dy};-->
+                <!--this.attr(attr);-->
+                <!--var lb = this.data("cooperative");-->
+                <!--var attr1 = {x: this.xx + dx + this.attr("width") / 2, y: this.yy + dy + this.attr("height") / 2};-->
+                <!--lb.attr(attr1);-->
+            <!--}-->
+            <!--function up(){-->
+                <!--this.animate({"fill-opacity": 1}, 300);-->
+            <!--}-->
+        <!--}-->
+        <!--window.onload = function(){-->
+            <!--var r = Raphael("holder", 620, 420),discattr={fill:"red", stroke:"none"};-->
+            <!--var entity1 = new Entity(r, 0, 0, 60, 40);-->
+        <!--};-->
+    <!--</script>-->
+    <script>
+        var re = /^(?:(?![^:@]+:[^:@\/]*@)([^:\/?#.]+):)?(?:\/\/)?((?:(([^:@]*)(?::([^:@]*))?)?@)?([^:\/?#]*)(?::(\d*))?)(((\/(?:[^?#](?![^?#\/]*\.[^?#\/.]+(?:[?#]|$)))*\/?)?([^?#\/]*))(?:\?([^#]*))?(?:#(.*))?)/;
+       var str="HTTPs:\/\/localhost:8080\/a\/?110_1.html#ghi";
+        var parts = ['source', 'protocol', 'authority', 'userInfo', 'user', 'password',
+            'host', 'port', 'path', 'query',
+            'anchor'];
+        var m = re.exec(str || '')
+                , uri = {}
+                , i = 14;
+
+            while (i--) {
+                uri[parts[i]] = m[i] || '';
+            }
+
+            document.write(JSON.stringify(uri));
+
+    </script>
+</head>
+<body>
+<div id="holder">
+</div>
+</body>
+</html>

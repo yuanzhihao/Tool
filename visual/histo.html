@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="lib/bmob-min.js"></script>
+</head>
+<body>
+
+</body>
+<script>
+
+    Bmob.initialize("9bdf9b053a38622b97df59f99cc6c7bd", "38c43d7dfde18bf746efa69a861dd4e3");
+    var GameScore = Bmob.Object.extend("GameScore");
+    var gameScore = new GameScore();
+    gameScore.set("score", 1337);
+    gameScore.save(null, {
+        success: function(object) {
+            alert("create object success, object id:"+object.id);
+        },
+        error: function(model, error) {
+            alert("create object fail");
+        }
+    });
+</script>
+</html>
