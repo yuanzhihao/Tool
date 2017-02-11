@@ -1,0 +1,85 @@
+<!doctype html>
+<html charset="utf-8">
+<head>
+    <title>Connectivities</title>
+    <script src="./lib/raphael-min.js" type="text/javascript" charset="utf-8"></script>
+
+    <script type="text/javascript">
+//        function Entity(r, l, t, w, h){
+//            this.Label = r.text(l + w/2, t + h/2, "Hello World!");
+//            this.Rectangle = r.rect(l, t, w, h, 10).attr({fill:"brown", stroke:"#666", title:"A Rectangle"}).drag(move, Dragger, up).data("cooperative", this.Label).toBack();
+//            function Dragger(){
+//                this.xx = this.attr("x");
+//                this.yy = this.attr("y");
+//                this.animate({"fill-opacity": .2}, 500);
+//            }
+////            function click() {
+////                this.animate({"fill-opacity": .2}, 500);
+////            }
+//            function move(dx, dy){
+//                var attr = {x: this.xx + dx, y: this.yy + dy};
+//                this.attr(attr);
+//                var lb = this.data("cooperative");
+//                var attr1 = {x: this.xx + dx + this.attr("width") / 2, y: this.yy + dy + this.attr("height") / 2};
+//                lb.attr(attr1);
+//            }
+//            function up(){
+//                this.animate({"fill-opacity": 1}, 300);
+//            }
+//        }
+//        window.onload = function(){
+//            var r = Raphael("holder", 620, 420);
+//            var entity1 = new Entity(r, 0, 0, 60, 40);
+//        };
+    </script>
+
+<!--//        var re = /^(?:(?![^:@]+:[^:@\/]*@)([^:\/?#.]+):)?(?:\/\/)?((?:(([^:@]*)(?::([^:@]*))?)?@)?([^:\/?#]*)(?::(\d*))?)(((\/(?:[^?#](?![^?#\/]*\.[^?#\/.]+(?:[?#]|$)))*\/?)?([^?#\/]*))(?:\?([^#]*))?(?:#(.*))?)/;-->
+<!--//       var str="HTTPs:\/\/localhost:8080\/a\/?110_1.html#ghi";-->
+<!--//        var parts = ['source', 'protocol', 'authority', 'userInfo', 'user', 'password',-->
+<!--//            'host', 'port', 'path', 'query',-->
+<!--//            'anchor'];-->
+<!--//        var m = re.exec(str || '')-->
+<!--//                , uri = {}-->
+<!--//                , i = 14;-->
+<!--//-->
+<!--//            while (i&#45;&#45;) {-->
+<!--//                uri[parts[i]] = m[i] || '';-->
+<!--//            }-->
+<!--//-->
+<!--//            document.write(JSON.stringify(uri));-->
+
+    <script>
+
+        window.onload = function(){
+            var width=50;
+            var height=50;
+            var paper = new Raphael('holder', width * 50, height * 50);
+
+             paper.matrix=[];
+
+            for (var i = 0; i < width; i++) {
+
+                for (var j = 0; j < height; j++) {
+                    var  element = paper.rect(i* 50, j * 50, 50, 50).attr({'fill': "#fff"}).click(function () {
+                        this.attr({"fill": "#32b6ce"});
+                    });
+                    paper.matrix.push(element);
+                }
+            }
+        };
+    </script>
+</head>
+<body oncontextmenu="doNothing()">
+<div id="holder">
+
+</div>
+</body>
+<script>
+    function doNothing(){
+        window.event.returnValue=false;
+        return false;
+    }
+</script>
+
+
+</html>
